@@ -1,0 +1,8 @@
+{
+  "name": "nexus-training-club",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}

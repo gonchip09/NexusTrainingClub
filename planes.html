@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Elegí tu plan NEXUS y solicitá una clase de prueba gratuita.">
+    <title>Planes y contacto — NEXUS Training Club</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="plans-page">
+    <header class="site-header" data-header>
+        <div class="shell nav-wrap">
+            <a class="brand" href="index.html" aria-label="NEXUS Training Club, inicio">NEXUS<span>®</span></a>
+            <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="primary-navigation"><span class="sr-only">Abrir menú</span><i></i><i></i></button>
+            <nav class="site-nav" id="primary-navigation" data-mobile-menu aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="entrenamiento.html">Entrenamiento</a>
+                <a href="planes.html" aria-current="page">Planes</a>
+                <a href="#contacto">Contacto</a>
+                <a class="button button--nav" href="#clase-prueba">Probá NEXUS <span aria-hidden="true">↗</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="plans-hero">
+            <div class="shell plans-hero__content" data-reveal>
+                <p class="eyebrow">MEMBRESÍAS · 02</p>
+                <h1>Un plan para<br><em>cada objetivo.</em></h1>
+                <div><p>Empezá como quieras. Avanzá a tu ritmo.</p><a class="text-link text-link--dark" href="#membresias">Comparar planes <span aria-hidden="true">↓</span></a></div>
+            </div>
+            <div class="plans-hero__ticker" aria-hidden="true"><span>PROGRESO · DISCIPLINA · COMUNIDAD · MOVIMIENTO ·</span></div>
+        </section>
+
+        <section class="memberships section" id="membresias">
+            <div class="shell">
+                <div class="section-heading section-heading--split" data-reveal><div><p class="eyebrow">ELEGÍ TU RITMO</p><h2>Simple. Claro.<br><em>Sin vueltas.</em></h2></div><p>Todos los planes incluyen acceso al equipo NEXUS y una evaluación inicial.</p></div>
+                <div class="plans-grid">
+                    <article class="plan-card" data-reveal>
+                        <div class="plan-card__top"><span>01</span><p>NEXUS</p><h3>Basic</h3><p class="plan-card__desc">Lo esencial para crear tu hábito.</p></div>
+                        <ul><li>Acceso 3 días por semana</li><li>Sala de musculación y cardio</li><li>Evaluación inicial</li><li>App de seguimiento</li><li class="is-muted">Clases funcionales</li><li class="is-muted">Personal Training</li></ul>
+                        <a class="button button--outline" href="#clase-prueba">Quiero empezar <span aria-hidden="true">↗</span></a>
+                    </article>
+                    <article class="plan-card plan-card--featured" data-reveal>
+                        <div class="plan-badge">Más elegido</div>
+                        <div class="plan-card__top"><span>02</span><p>NEXUS</p><h3>Plus</h3><p class="plan-card__desc">Libertad para entrenar todos los días.</p></div>
+                        <ul><li>Acceso ilimitado</li><li>Sala de musculación y cardio</li><li>Evaluación trimestral</li><li>App de seguimiento</li><li>Clases funcionales</li><li class="is-muted">Personal Training</li></ul>
+                        <a class="button button--dark" href="#clase-prueba">Elegir Plus <span aria-hidden="true">↗</span></a>
+                    </article>
+                    <article class="plan-card" data-reveal>
+                        <div class="plan-card__top"><span>03</span><p>NEXUS</p><h3>Unlimited</h3><p class="plan-card__desc">El máximo acompañamiento.</p></div>
+                        <ul><li>Acceso ilimitado</li><li>Todas las áreas y clases</li><li>Evaluación mensual</li><li>App de seguimiento</li><li>Plan nutricional base</li><li>2 sesiones personales al mes</li></ul>
+                        <a class="button button--outline" href="#clase-prueba">Ir por todo <span aria-hidden="true">↗</span></a>
+                    </article>
+                </div>
+                <p class="plans-note">Todos los planes son mensuales y se pueden cancelar cuando quieras. Sin matrícula.</p>
+            </div>
+        </section>
+
+        <section class="trial section" id="clase-prueba">
+            <div class="shell trial-layout">
+                <div class="trial-copy" data-reveal>
+                    <p class="eyebrow eyebrow--light">PROBÁ NEXUS</p>
+                    <h2>Tu primer entrenamiento<br><em>va por nuestra cuenta.</em></h2>
+                    <p>Contanos qué estás buscando. Nuestro equipo te contactará para coordinar el mejor día y horario.</p>
+                    <div class="trial-promise"><span>01</span><p>Sin costo</p><span>02</span><p>Sin compromiso</p><span>03</span><p>Con un entrenador</p></div>
+                </div>
+
+                <div class="form-panel" data-reveal>
+                    <form class="trial-form" id="trial-form" novalidate>
+                        <div class="form-grid">
+                            <div class="form-field"><label for="firstName">Nombre</label><input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="Tu nombre" aria-describedby="firstName-error"><small id="firstName-error" data-error-for="firstName"></small></div>
+                            <div class="form-field"><label for="lastName">Apellido</label><input id="lastName" name="lastName" type="text" autocomplete="family-name" placeholder="Tu apellido" aria-describedby="lastName-error"><small id="lastName-error" data-error-for="lastName"></small></div>
+                            <div class="form-field form-field--wide"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="vos@email.com" aria-describedby="email-error"><small id="email-error" data-error-for="email"></small></div>
+                            <div class="form-field form-field--wide"><label for="phone">Teléfono</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="099 123 456" aria-describedby="phone-error"><small id="phone-error" data-error-for="phone"></small></div>
+                            <div class="form-field form-field--wide"><label for="training">¿Qué te interesa entrenar?</label><select id="training" name="training" aria-describedby="training-error"><option value="">Elegí una modalidad</option><option value="fuerza">Fuerza</option><option value="hipertrofia">Hipertrofia</option><option value="funcional">Funcional</option><option value="personal">Personal Training</option></select><small id="training-error" data-error-for="training"></small></div>
+                        </div>
+                        <div class="checkbox-field"><input id="accepted" name="accepted" type="checkbox" aria-describedby="accepted-error"><label for="accepted">Acepto que NEXUS me contacte para coordinar la clase.</label><small id="accepted-error" data-error-for="accepted"></small></div>
+                        <button class="button button--primary form-submit" type="submit" data-submit><span data-submit-label>Quiero mi clase gratis</span><i aria-hidden="true"></i><b aria-hidden="true">↗</b></button>
+                    </form>
+                    <div class="form-success" data-form-success hidden tabindex="-1">
+                        <span aria-hidden="true">✓</span><p class="eyebrow">SOLICITUD RECIBIDA</p><h3>Nos vemos<br>en NEXUS.</h3><p>Gracias por dar el primer paso. Nuestro equipo se pondrá en contacto contigo muy pronto.</p><a class="text-link text-link--dark" href="index.html">Volver al inicio <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-strip" id="contacto"><div class="shell contact-strip__grid"><div><p class="eyebrow">VISITANOS</p><p>Av. Luis A. de Herrera 1240<br>Montevideo, Uruguay</p></div><div><p class="eyebrow">HORARIOS</p><p>Lun–Vie · 06:00–22:00<br>Sáb–Dom · 08:00–18:00</p></div><div><p class="eyebrow">HABLEMOS</p><a href="mailto:hola@nexusclub.uy">hola@nexusclub.uy ↗</a><a href="tel:+59829001234">+598 2900 1234 ↗</a></div></div></section>
+    </main>
+
+    <footer class="site-footer"><div class="shell footer-grid"><div><a class="brand brand--footer" href="index.html">NEXUS<span>®</span></a><p>Un lugar para entrenar con propósito.</p></div><div><p class="footer-label">NAVEGÁ</p><a href="index.html">Inicio</a><a href="entrenamiento.html">Entrenamiento</a><a href="planes.html">Planes</a></div><div><p class="footer-label">VISITANOS</p><p>Av. Luis A. de Herrera 1240<br>Montevideo, Uruguay</p><p>Lun–Vie · 06:00–22:00<br>Sáb–Dom · 08:00–18:00</p></div><div><p class="footer-label">SEGUINOS</p><a href="#">Instagram ↗</a><a href="#">TikTok ↗</a></div></div><div class="shell footer-bottom"><span>© 2026 NEXUS Training Club</span><span>Hecho para avanzar.</span></div></footer>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
