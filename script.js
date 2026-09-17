@@ -2,6 +2,25 @@ export function formatStatValue(value, prefix = '', suffix = '') {
     return `${prefix}${value}${suffix}`;
 }
 
+export function validateTrialForm(fields = {}) {
+    const errors = {};
+    const firstName = fields.firstName?.trim() || '';
+    const lastName = fields.lastName?.trim() || '';
+    const email = fields.email?.trim() || '';
+    const phone = fields.phone?.trim() || '';
+
+    if (!firstName) errors.firstName = 'Ingresá tu nombre.';
+    if (!lastName) errors.lastName = 'Ingresá tu apellido.';
+    if (!email) errors.email = 'Ingresá tu email.';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = 'Ingresá un email válido.';
+    if (!phone) errors.phone = 'Ingresá tu teléfono.';
+    else if (phone.replace(/\D/g, '').length < 8) errors.phone = 'Ingresá un teléfono válido.';
+    if (!fields.training) errors.training = 'Elegí una modalidad.';
+    if (!fields.accepted) errors.accepted = 'Necesitás aceptar para continuar.';
+
+    return errors;
+}
+
 const motionReduced = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
 function setupMenu() {
@@ -74,9 +93,66 @@ function setupCounters() {
     counters.forEach((counter) => observer.observe(counter));
 }
 
+function setupTrialForm() {
+    const form = document.querySelector('#trial-form');
+    if (!form) return;
+
+    const submit = form.querySelector('[data-submit]');
+    const submitLabel = form.querySelector('[data-submit-label]');
+    const success = document.querySelector('[data-form-success]');
+
+    const clearErrors = () => {
+        form.querySelectorAll('.is-invalid').forEach((field) => {
+            field.classList.remove('is-invalid');
+            field.removeAttribute('aria-invalid');
+        });
+        form.querySelectorAll('[data-error-for]').forEach((message) => { message.textContent = ''; });
+    };
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        clearErrors();
+        const data = new FormData(form);
+        const errors = validateTrialForm({
+            firstName: data.get('firstName'),
+            lastName: data.get('lastName'),
+            email: data.get('email'),
+            phone: data.get('phone'),
+            training: data.get('training'),
+            accepted: data.get('accepted') === 'on',
+        });
+
+        const invalidFields = Object.keys(errors);
+        invalidFields.forEach((name) => {
+            const field = form.elements.namedItem(name);
+            const message = form.querySelector(`[data-error-for="${name}"]`);
+            field?.classList.add('is-invalid');
+            field?.setAttribute('aria-invalid', 'true');
+            if (message) message.textContent = errors[name];
+        });
+
+        if (invalidFields.length) {
+            form.elements.namedItem(invalidFields[0])?.focus();
+            return;
+        }
+
+        submit.disabled = true;
+        submit.classList.add('is-loading');
+        submitLabel.textContent = 'Enviando';
+        window.setTimeout(() => {
+            form.classList.add('is-success');
+            form.setAttribute('aria-hidden', 'true');
+            success.hidden = false;
+            requestAnimationFrame(() => success.classList.add('is-visible'));
+            success.focus();
+        }, 700);
+    });
+}
+
 if (typeof document !== 'undefined') {
     setupMenu();
     setupHeader();
     setupReveals();
     setupCounters();
+    setupTrialForm();
 }
